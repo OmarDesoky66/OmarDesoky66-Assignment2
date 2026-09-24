@@ -16,12 +16,18 @@ internal class Program
 
         
         Console.Write("Enter the first number: ");
-        num1 = int.Parse(Console.ReadLine());
+        while (!int.TryParse(Console.ReadLine(), out num1))
+        {
+            Console.Write("Invalid number! Enter the first number again: ");
+        }
         Console.WriteLine("--------------------------------");
 
 
         Console.Write("Enter the second number: ");
-        num2 = int.Parse(Console.ReadLine());
+        while (!int.TryParse(Console.ReadLine(), out num2))
+        {
+            Console.Write("Invalid number! Enter the second number again: ");
+        }
 
         Console.WriteLine("--------------------------------");
 
@@ -29,7 +35,11 @@ internal class Program
 
 
         Console.Write("Enter operation (+, -, *, /): ");
-        operation = char.Parse(Console.ReadLine());
+        while (!char.TryParse(Console.ReadLine(), out operation) ||
+        (operation != '+' && operation != '-' && operation != '*' && operation != '/'))
+        {
+            Console.Write("Invalid operation! Enter (+, -, *, /): ");
+        }
 
 
         switch (operation)
